@@ -6,7 +6,8 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <!-- Add Task Form -->
+
+    <!-- Task Form -->
     <div class="task-form mb-8">
         <form id="new-task-form" action="{{ route('tasks.store') }}" method="POST" class="flex gap-4 mb-8">
             @csrf

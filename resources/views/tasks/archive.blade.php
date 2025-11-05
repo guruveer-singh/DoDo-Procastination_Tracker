@@ -14,12 +14,15 @@
                 <div class="flex justify-between items-center">
                     <div>
                         <div class="font-medium">{{ $task->title }}</div>
-                        <div class="text-sm text-gray-500">Archived on {{ $task->deleted_at->format('M d, Y') }}</div>
+                        <div class="text-sm text-gray-500">
+                            @if($task->created_at)
+                                Created on {{ $task->created_at->format('M d, Y') }}
+                            @endif
+                        </div>
                     </div>
                     <div class="flex space-x-2">
                         <form action="{{ route('tasks.restore', $task) }}" method="POST" class="inline">
                             @csrf
-                            @method('PATCH')
                             <button type="submit" class="btn btn-primary text-sm">Restore</button>
                         </form>
                         <form action="{{ route('tasks.force-delete', $task) }}" method="POST" class="inline">

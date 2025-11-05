@@ -17,9 +17,14 @@ class User extends Authenticatable
         'password',
     ];
 
-    // 👇 Add this function here
+    // Relationships
     public function reminders()
     {
         return $this->hasMany(Reminder::class);
+    }
+
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
     }
 }

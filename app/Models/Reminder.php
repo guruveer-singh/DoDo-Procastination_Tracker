@@ -16,6 +16,10 @@ class Reminder extends Model
         'user_id',
     ];
 
+    protected $casts = [
+        'reminder_time' => 'datetime',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
